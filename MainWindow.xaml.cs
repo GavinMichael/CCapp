@@ -124,7 +124,7 @@ namespace CCApp
             #region
 
             //holds the line break
-            string lineBreak = "----------------------------------";
+            string lineBreak = "---------------------------------------------------------------- ";
             //Concatenate the line with current time and new line
             lineBreak = lineBreak + DateTime.Now.ToShortTimeString() + "\n";
             //Adds the string to the Main Text Box
@@ -202,7 +202,7 @@ namespace CCApp
         }
         #endregion
 
-        //Here are the template button click events
+        //Here are the template button click events - !!!!!!!!!!!!!!!!! Not Complete
         #region
 
         //Delivery Issue Btn
