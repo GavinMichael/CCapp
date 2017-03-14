@@ -1,0 +1,89 @@
+﻿<Window x:Class="CCApp.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CCApp"
+        mc:Ignorable="d"
+        Title="Break Aux" Height="440" Width="220" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderThickness="2">
+    <Grid Margin="5,5,5,5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <!--25 set as an exact value reserved for the refresh & close button-->
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        
+        <!--Stackpanel with the list of all the agents-->
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="Padding" Value="1,1,1,1" />
+                    <Setter Property="Margin" Value="0,1,1,1" />
+                    <Setter Property="Height" Value="25" />
+                </Style>
+            </StackPanel.Resources>
+            
+            <!--Add any new agents here-->
+            <Label Content="Anas Nazzal" />
+            <Label Content="Abdallah Shomar" />
+            <Label Content="Gasira Aideed" />
+            <Label Content="Katherine Garciano" />
+            <Label Content="Hafeez Ahmed" />
+            <Label Content="Heidi" />
+            <Label Content="Sara" />
+            <Label Content="Yamini" />
+            <Label Content="Remilie Samson" />
+            <Label Content="Mark" />
+            <Label Content="Mahmoud" />
+            <Label Content="Rainna" />
+            <Label Content="Alaa" />
+        </StackPanel>
+        
+        <!--Stackpannel for the break values-->
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="Padding" Value="1,1,1,1" />
+                    <Setter Property="Margin" Value="0,1,1,1" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                    <Setter Property="Height" Value="25" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+            </StackPanel.Resources>
+            
+            <!--Add the break label if any new agents are added-->
+            <Label x:Name="anasBreakTxtBox" Content="Fetching" />
+            <Label x:Name="abdallahBreakTxtBox" Content="Fetching" />
+            <Label x:Name="gasiraBreakTxtBox" Content="Fetching" />
+            <Label x:Name="katBreakTxtBox" Content="Fetching" />
+            <Label x:Name="hafeezBreakTxtBox" Content="Fetching" />
+            <Label x:Name="heidiBreakTxtBox" Content="Fetching" />
+            <Label x:Name="saraBreakTxtBox" Content="Fetching" />
+            <Label x:Name="yaminiBreakTxtBox" Content="Fetching" />
+            <Label x:Name="remilieBreakTxtBox" Content="Fetching" />
+            <Label x:Name="markBreakTxtBox" Content="Fetching" />
+            <Label x:Name="mahmoudBreakTxtBox" Content="Fetching" />
+            <Label x:Name="rainnaBreakTxtBox" Content="Fetching" />
+            <Label x:Name="alaaBreakTxtBox" Content="Fetching" />
+        </StackPanel>
+        
+        <!--Stackpanel with the refresh & close button-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderBrush" Value="#dbdbdb" />
+                    <Setter Property="Background" Value="{x:Null}" />
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Refresh" x:Name="breakRefreshBtn" Click="breakRefreshBtn_Click" Padding="15,2,15,2" Margin="0,0,70,0"/>
+            <Button Content="Close" x:Name="breakWindowCloseBtn" Click="breakWindowCloseBtn_Click" Padding="15,2,15,2" BorderBrush="Red" />
+        </StackPanel>
+    </Grid>
+</Window>
