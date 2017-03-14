@@ -89,8 +89,48 @@ namespace CCApp
         //Top Menu New Call Button click event - Implemented
         private void newCallBtn_Click(object sender, RoutedEventArgs e)
         {
+            //This method does 3 things
+
+            //Increments the counter
+            #region
+
             numCounter++;
             counter.Content = $"Entries - {numCounter}";
+            #endregion
+
+            //Outputs text file
+            #region
+
+            //Takes all the text from the main text box and adds them to a list
+            List<string> saveFile = new List<string>();
+            saveFile.Add(mainTxtBox.Text);
+
+            //string for the save file 
+            string fileName = "SaveFile.txt";
+
+            //writes all lines to the save file
+            try
+            {
+                File.WriteAllLines(fileName, saveFile);
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message);
+            }
+            #endregion
+
+            //Adds a new line with time
+            #region
+
+            //holds the line break
+            string lineBreak = "----------------------------------";
+            //Concatenate the line with current time and new line
+            lineBreak = lineBreak + DateTime.Now.ToShortTimeString() + "\n";
+            //Adds the string to the Main Text Box
+            mainTxtBox.AppendText(lineBreak);
+
+            #endregion
         }
 
         //Top Menu Shortcuts Button click event - Implemented
@@ -220,7 +260,6 @@ namespace CCApp
             string filePath = @"_sourceFiles\petOrder.txt";
             TextHanlder(filePath);
         }
-        #endregion
 
         //Update JP Btn
         private void updateJPBtn_Click(object sender, RoutedEventArgs e)
@@ -228,5 +267,6 @@ namespace CCApp
             string filePath = @"_sourceFiles\updateJP.txt";
             TextHanlder(filePath);
         }
+        #endregion
     }
 }
