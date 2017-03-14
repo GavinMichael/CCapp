@@ -267,6 +267,27 @@ namespace CCApp
             string filePath = @"_sourceFiles\updateJP.txt";
             TextHanlder(filePath);
         }
+
+        //AUH Muni New Customer
+        private void auhMuniBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = @"_sourceFiles\AUHMuni.txt";
+            TextHanlder(filePath);
+        }
+
+        //Irtawi Card Complaint
+        private void irtawiComplaintBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = @"_sourceFiles\irtawiCardComplaint.txt";
+            TextHanlder(filePath);
+        }
+
+        //SMS Notification Issue
+        private void smsIssueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = @"_sourceFiles\smsNotificationsIssue.txt";
+            TextHanlder(filePath);
+        }
         #endregion
     }
 }

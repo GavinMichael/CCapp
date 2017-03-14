@@ -66,14 +66,17 @@
             </StackPanel.Resources>
             <Label x:Name="counter" Content="Entries - 0" Padding="10,5,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <Button Content="Delivery Issue" x:Name="delIssueBtn" Click="delIssueBtn_Click" />
+            <Button Content="PET Order" x:Name="petOrderBtn" Click="petOrderBtn_Click" />
             <Button Content="Change Details" x:Name="changeDetailsBtn" Click="changeDetailsBtn_Click" />
             <Button Content="Update JP" x:Name="updateJPBtn" Click="updateJPBtn_Click" />
             <Button Content="Cancellation" x:Name="cancellationBtn" Click="cancellationBtn_Click" />
+            <Button Content="AUH Municipalit" x:Name="auhMuniBtn" Click="auhMuniBtn_Click"/>
+            <Button Content="Irtawi Complaint" x:Name="irtawiComplaintBtn" Click="irtawiComplaintBtn_Click" />
+            <Button Content="SMS Issue" x:Name="smsIssueBtn" Click="smsIssueBtn_Click"/>
+            <Button Content="Disp Complaint" x:Name="dispComplaintBtn" Click="dispComplaintBtn_Click" />
             <Button Content="Labelling" x:Name="labellingBtn" Click="labellingBtn_Click" />
-            <Button Content="Disp Complaints" x:Name="dispComplaintBtn" Click="dispComplaintBtn_Click" />
             <Button Content="Sponsorship" x:Name="sponsorshipBtn" Click="sponsorshipBtn_Click" />
             <Button Content="Export" x:Name="exportBtn" Click="exportBtn_Click" />
-            <Button Content="PET Order" x:Name="petOrderBtn" Click="petOrderBtn_Click" />
         </StackPanel>
         
         <!--Stackpanel with the shortcuts at the very bottom-->
