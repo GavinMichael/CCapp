@@ -19,15 +19,38 @@ namespace CCApp
     /// </summary>
     public partial class Window1 : Window
     {
+        //this list holds all the lables in this window so that we can loop through each label and update it when the refresh button is pressed.
+        public List<Label> allLabels = new List<Label>();
+
         public Window1()
         {
             InitializeComponent();
+
+            //here we add all the labels into the List
+            allLabels.Add(anasBreakTxtBox);
+            allLabels.Add(abdallahBreakTxtBox);
+            allLabels.Add(gasiraBreakTxtBox);
+            allLabels.Add(katBreakTxtBox);
+            allLabels.Add(hafeezBreakTxtBox);
+            allLabels.Add(heidiBreakTxtBox);
+            allLabels.Add(saraBreakTxtBox);
+            allLabels.Add(yaminiBreakTxtBox);
+            allLabels.Add(remilieBreakTxtBox);
+            allLabels.Add(markBreakTxtBox);
+            allLabels.Add(mahmoudBreakTxtBox);
+            allLabels.Add(rainnaBreakTxtBox);
+            allLabels.Add(alaaBreakTxtBox);
+
         }
+
 
         private void breakRefreshBtn_Click(object sender, RoutedEventArgs e)
         {
-            //implement the rest of the agent's break labels to change when the button is pressed
-            anasBreakTxtBox.Content = "Updated";
+            //changes the text for all labels to the received value
+            foreach (var _label in allLabels)
+            {
+                _label.Content = "Updated";
+            }
         }
 
         private void breakWindowCloseBtn_Click(object sender, RoutedEventArgs e)

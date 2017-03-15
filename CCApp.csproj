@@ -81,9 +81,6 @@
     <Compile Include="Extensions.xaml.cs">
       <DependentUpon>Extensions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shortcuts.xaml.cs">
-      <DependentUpon>Shortcuts.xaml</DependentUpon>
-    </Compile>
     <Page Include="Extensions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,10 +98,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="BreakWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Shortcuts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,9 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\favicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\MSCRM.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />

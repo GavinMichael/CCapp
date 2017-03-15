@@ -70,13 +70,21 @@
             <Button Content="Change Details" x:Name="changeDetailsBtn" Click="changeDetailsBtn_Click" />
             <Button Content="Update JP" x:Name="updateJPBtn" Click="updateJPBtn_Click" />
             <Button Content="Cancellation" x:Name="cancellationBtn" Click="cancellationBtn_Click" />
-            <Button Content="AUH Municipalit" x:Name="auhMuniBtn" Click="auhMuniBtn_Click"/>
+            <Button Content="AUH Municipality" x:Name="auhMuniBtn" Click="auhMuniBtn_Click"/>
             <Button Content="Irtawi Complaint" x:Name="irtawiComplaintBtn" Click="irtawiComplaintBtn_Click" />
             <Button Content="SMS Issue" x:Name="smsIssueBtn" Click="smsIssueBtn_Click"/>
             <Button Content="Disp Complaint" x:Name="dispComplaintBtn" Click="dispComplaintBtn_Click" />
             <Button Content="Labelling" x:Name="labellingBtn" Click="labellingBtn_Click" />
             <Button Content="Sponsorship" x:Name="sponsorshipBtn" Click="sponsorshipBtn_Click" />
             <Button Content="Export" x:Name="exportBtn" Click="exportBtn_Click" />
+        </StackPanel>
+        
+        <!--Stackpanel with the email templates. Test area-->
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0">
+            <StackPanel.Resources>
+                
+            </StackPanel.Resources>
+            <Button Content="SM Not Answering" x:Name="smNotAnsweringBtn" Click="smNotAnsweringBtn_Click" />
         </StackPanel>
         
         <!--Stackpanel with the shortcuts at the very bottom-->
@@ -95,9 +103,10 @@
             </StackPanel.Resources>
             <Button Content="MS CRM" x:Name="shortcutsCrmBtn" Click="shortcutsCrmBtn_Click" />
             <Button Content="Knowledge Base" x:Name="shortcutsCbdKbBtn" Click="shortcutsCbdKbBtn_Click" />
-            <Button Content="ABD KB" x:Name="shortcutsAbdKbBtn" Click="shortcutsAbdKbBtn_Click" />
             <Button Content="Power BI" x:Name="shortcutsPowerBiBtn" Click="shortcutsPowerBiBtn_Click" />
+            <Button Content="Price Inquiry" x:Name="shortcutsPriceInqBtn" Click="shortcutsPriceInqBtn_Click"/>
             <Button Content="Remote Mail" x:Name="shortcutsRmtMailBtn" Click="shortcutsRmtMailBtn_Click" />
+            <Button Content="ABD KB" x:Name="shortcutsAbdKbBtn" Click="shortcutsAbdKbBtn_Click" />
             <Button Content="Planned Leaves" x:Name="shortcutsPlannedLeavesBtn" Click="shortcutsPlannedLeavesBtn_Click" />
         </StackPanel>
 

@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <Label Content="Team" Grid.Column="0" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="16" />
         <Label Content="HR Team" Grid.Column="1" HorizontalAlignment="Center" FontWeight="DemiBold" FontSize="16" />
-        <TextBox x:Name="teamExtensionsTxtBox" Text="" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" Padding="5,5,5,5" BorderBrush="{x:Null}" Grid.RowSpan="2" />
-        <TextBox x:Name="hrExtensionsTxtBox" Text="" Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" Padding="5,5,5,5" BorderBrush="{x:Null}" />
+        <TextBox x:Name="teamExtensionsTxtBox" Text="" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" Padding="5,5,5,5" BorderBrush="{x:Null}" Grid.RowSpan="2" IsReadOnly="True" />
+        <TextBox x:Name="hrExtensionsTxtBox" Text="" Grid.Column="1" Grid.Row="1" Margin="10,10,10,10" Padding="5,5,5,5" BorderBrush="{x:Null}" IsReadOnly="True" />
         <Button Content="Close" x:Name="extCloseBtn" Grid.Row="2" Grid.Column="1" Width="50" HorizontalAlignment="Right" Height="22" FontSize="10" Background="{x:Null}" Padding="1,.5,1,1" Click="extCloseBtn_Click" BorderBrush="Red" />
     </Grid>
 </Window>

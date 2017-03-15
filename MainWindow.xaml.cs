@@ -133,13 +133,6 @@ namespace CCApp
             #endregion
         }
 
-        //Top Menu Shortcuts Button click event - Implemented
-        private void shortcutsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Shortcuts shortCutWindow = new Shortcuts();
-            shortCutWindow.Show();
-        }
-
         //Top Menu Extensions Button click event - Implemented
         private void extentionsBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -200,7 +193,18 @@ namespace CCApp
         {
                 Process.Start("https://docs.google.com/spreadsheets/d/1LMt-GJw2ISLF-glQlbL-fZweqG6axwX5MkrWm0eUhuM/edit#gid=557340792");
         }
+
+        //Price Inquiry
+        private void shortcutsPriceInqBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://goo.gl/forms/5laEXcIuAUk0IMo72");
+        }
+
         #endregion
+        private void smNotAnsweringBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(@"_sourceFiles\emails\smNotAnswering.msg");
+        }
 
         //Here are the template button click events - !!!!!!!!!!!!!!!!! Not Complete
         #region
@@ -289,5 +293,6 @@ namespace CCApp
             TextHanlder(filePath);
         }
         #endregion
+
     }
 }
