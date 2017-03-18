@@ -9,7 +9,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCApp"
         mc:Ignorable="d"
-        Title="CC Application" Height="665" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon=".\Resources\favicon.ico">
+        Title="CC Application" Height="665" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon=".\Resources\favicon.ico" Background="White" >
+      
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
@@ -28,7 +30,7 @@
         </Grid.ColumnDefinitions>
         
         <!--Stackpannel with the top most menu buttons-->
-        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="3">
+        <StackPanel x:Name="menuStackPanel" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="4">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="1,0,0,0" />
@@ -36,24 +38,39 @@
             </StackPanel.Resources>
             <Button Content="Extensions" x:Name="extentionsBtn" Margin="5,0,0,0" Padding="5,0,5,2" Background="{x:Null}" BorderBrush="{x:Null}" Click="extentionsBtn_Click" />
             <Button Content="Break Aux"  x:Name="breakBtn" Padding="5,0,5,2" Background="{x:Null}" BorderBrush="{x:Null}" Click="breakBtn_Click" />
-            <Button Content="Help" x:Name="helpBtn" Padding="5,0,5,2" Background="{x:Null}" BorderBrush="{x:Null}" />
+            <Button Content="Help" x:Name="helpBtn" Padding="5,0,5,2" Background="{x:Null}" BorderBrush="{x:Null}" Click="helpBtn_Click" />
             <Button Content="Quit" x:Name="quitBtn" Padding="5,0,5,2" Background="{x:Null}" BorderBrush="{x:Null}" Click="mainQuitBtn_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderBrush" Value="White" />
+                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Setter Property="Height" Value="10" />
+                    <Setter Property="Width" Value="10" />
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="themeDefaultBtn" Background="Gainsboro" Click="ThemeHandler" Tag="Default" ToolTip="Gainsboro" />
+            <Button x:Name="themeOneBtn" Background="DodgerBlue" Click="ThemeHandler" Tag="One" ToolTip="DodgerBlue" />
+            <Button x:Name="themeTwoBtn" Background="Fuchsia"  Click="ThemeHandler" Tag="Two" ToolTip="Fuchsia" />
+            <Button x:Name="themeThreeBtn" Background="OrangeRed" Click="ThemeHandler" Tag="Three" ToolTip="OrangeRed" />
+            <Button x:Name="themeFourBtn" Background="Lime" Click="ThemeHandler" Tag="Four" ToolTip="Lime" />
+            <Button x:Name="themeGavinBtn" Background="Black" Click="ThemeHandler" Tag="Gavin" ToolTip="Gavin's Theme" />
         </StackPanel>
         
         <!--Stackpannel with New Call. Taking up the first column-->
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button Content="New Call" x:Name="newCallBtn" Padding="15,0,15,0" BorderBrush="#dbdbdb" Margin="5,0,0,0" Height="25" Click="newCallBtn_Click">
-                <Button.Background>
-                    <SolidColorBrush Color="White" Opacity="0.7" />
-                </Button.Background>
-            </Button>
+            <Button Content="New Call" x:Name="newCallBtn" Padding="15,0,15,0" Margin="5,0,0,0" Height="25" Click="newCallBtn_Click" BorderBrush="Black" Background="{x:Null}" BorderThickness="1" />
         </StackPanel>
-        
-        <!--Main textBox area-->
-        <TextBox x:Name="mainTxtBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="5,5,0,0" BorderBrush="#dbdbdb" Padding="5" AcceptsReturn="True" TextWrapping="Wrap" />
 
+        <!--Main textBox area-->
+        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="3" >
+            <TextBox x:Name="mainTxtBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="5,0,0,0" BorderBrush="#dbdbdb" Padding="5" AcceptsReturn="True" TextWrapping="Wrap" />
+        </ScrollViewer>
+        
         <!--Stackpanel with the template buttons-->
-        <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Vertical" Margin="5,3,5,0" HorizontalAlignment="Left" Width="auto">
+        <StackPanel x:Name="templateBtnStackPanel" Grid.Column="3" Grid.Row="3" Orientation="Vertical" Margin="5,3,5,0" HorizontalAlignment="Left" Width="auto">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Margin" Value="0,2,0,0" />
@@ -78,17 +95,9 @@
             <Button Content="Sponsorship" x:Name="sponsorshipBtn" Click="sponsorshipBtn_Click" />
             <Button Content="Export" x:Name="exportBtn" Click="exportBtn_Click" />
         </StackPanel>
-        
-        <!--Stackpanel with the email templates. Test area-->
-        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0">
-            <StackPanel.Resources>
-                
-            </StackPanel.Resources>
-            <Button Content="SM Not Answering" x:Name="smNotAnsweringBtn" Click="smNotAnsweringBtn_Click" />
-        </StackPanel>
-        
+
         <!--Stackpanel with the shortcuts at the very bottom-->
-        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="1" Margin="0,0,0,0" Width="auto" >
+        <StackPanel x:Name="shortcutStackPanel" Orientation="Horizontal" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="1" Margin="0,0,0,0" Width="auto" >
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="BorderBrush" Value="#dbdbdb" />
