@@ -65,10 +65,11 @@
         </StackPanel>
 
         <!--Main textBox area-->
-        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="3" >
+        <!--Change the Row from 4 to 3 when test is complete-->
+        <ScrollViewer Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="3" >
             <TextBox x:Name="mainTxtBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="5,0,0,0" BorderBrush="#dbdbdb" Padding="5" AcceptsReturn="True" TextWrapping="Wrap" />
+            
         </ScrollViewer>
-        
         <!--Stackpanel with the template buttons-->
         <StackPanel x:Name="templateBtnStackPanel" Grid.Column="3" Grid.Row="3" Orientation="Vertical" Margin="5,3,5,0" HorizontalAlignment="Left" Width="auto">
             <StackPanel.Resources>
@@ -82,18 +83,18 @@
                 </Style>
             </StackPanel.Resources>
             <Label x:Name="counter" Content="Entries - 0" Padding="10,5,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            <Button Content="Delivery Issue" x:Name="delIssueBtn" Click="delIssueBtn_Click" />
-            <Button Content="PET Order" x:Name="petOrderBtn" Click="petOrderBtn_Click" />
-            <Button Content="Change Details" x:Name="changeDetailsBtn" Click="changeDetailsBtn_Click" />
-            <Button Content="Update JP" x:Name="updateJPBtn" Click="updateJPBtn_Click" />
-            <Button Content="Cancellation" x:Name="cancellationBtn" Click="cancellationBtn_Click" />
-            <Button Content="AUH Municipality" x:Name="auhMuniBtn" Click="auhMuniBtn_Click"/>
-            <Button Content="Irtawi Complaint" x:Name="irtawiComplaintBtn" Click="irtawiComplaintBtn_Click" />
-            <Button Content="SMS Issue" x:Name="smsIssueBtn" Click="smsIssueBtn_Click"/>
-            <Button Content="Disp Complaint" x:Name="dispComplaintBtn" Click="dispComplaintBtn_Click" />
-            <Button Content="Labelling" x:Name="labellingBtn" Click="labellingBtn_Click" />
-            <Button Content="Sponsorship" x:Name="sponsorshipBtn" Click="sponsorshipBtn_Click" />
-            <Button Content="Export" x:Name="exportBtn" Click="exportBtn_Click" />
+            <Button Content="Delivery Issue" x:Name="delIssueBtn" Click="TemplateHandler" Tag="delivery" />
+            <Button Content="PET Order" x:Name="petOrderBtn" Click="TemplateHandler" Tag="petOrder" />
+            <Button Content="Change Details" x:Name="changeDetailsBtn" Click="TemplateHandler" Tag="changeDet" />
+            <Button Content="Update JP" x:Name="updateJPBtn" Click="TemplateHandler" Tag="updateJP" />
+            <Button Content="Cancellation" x:Name="cancellationBtn" Click="TemplateHandler" Tag="cancellation" />
+            <Button Content="AUH Municipality" x:Name="auhMuniBtn" Click="TemplateHandler" Tag="AUHMuni"/>
+            <Button Content="Irtawi Complaint" x:Name="irtawiComplaintBtn" Click="TemplateHandler" Tag="irtawiCardComplaint" />
+            <Button Content="SMS Issue" x:Name="smsIssueBtn" Click="TemplateHandler" Tag="smsLangChange" />
+            <Button Content="Disp Complaint" x:Name="dispComplaintBtn" Click="TemplateHandler" Tag="dispcomplaint" />
+            <Button Content="Labelling" x:Name="labellingBtn" Click="TemplateHandler" Tag="labelling" />
+            <Button Content="Sponsorship" x:Name="sponsorshipBtn" Click="TemplateHandler" Tag="sponsorship" />
+            <Button Content="Export" x:Name="exportBtn" Click="TemplateHandler" Tag="export" />
         </StackPanel>
 
         <!--Stackpanel with the shortcuts at the very bottom-->
@@ -117,6 +118,7 @@
             <Button Content="Remote Mail" x:Name="shortcutsRmtMailBtn" Click="shortcutsRmtMailBtn_Click" />
             <Button Content="ABD KB" x:Name="shortcutsAbdKbBtn" Click="shortcutsAbdKbBtn_Click" />
             <Button Content="Planned Leaves" x:Name="shortcutsPlannedLeavesBtn" Click="shortcutsPlannedLeavesBtn_Click" />
+            <Button Content="Zeta" x:Name="shortcutsZetaBtn" Click="shortcutsZetaBtn_Click" />
         </StackPanel>
 
     </Grid>

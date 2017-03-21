@@ -9,20 +9,22 @@ using System.Windows.Media;
 
 namespace CCApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
 
     public partial class MainWindow : Window
     {
-        /* Shit that isnt done yet
-         * 
-         * Updates - Not Complete
-         * Theme - Complete
-        */
+        /// <summary>
+        /// Here is the list of things that are pending or have not yet been planned out
+        /// 1. Themes - Completed
+        /// 2. Minify the template button methods - Completed
+        /// 3. Increase mainTxtBox size - Completed
+        /// 4. Updates - Not completed
+        /// 5. Mark a pending call
+        /// </summary>
 
 
-        //this counts the entries for Label:counter
+        ///Globals
+
+        ///this counts the entries for Label:counter
         int numCounter = 0;
 
 
@@ -30,15 +32,52 @@ namespace CCApp
         public MainWindow()
         {
             InitializeComponent();
-            //ThemeHandler("retro");
         }
 
+        /// <summary>
+        /// Template Hanlder Method
+        /// -----------------------
+        /// This takes the tag on the template button and identifies the txt file based on the tag
+        /// Then calls the TextHanlder Method passing in the filepath
+        /// </summary>
 
+        #region Template Hanlder
+
+        private void TemplateHandler(object sender, RoutedEventArgs e)
+        {
+            //captures the tag of the button pressed
+            var receivedTag = ((Button)sender).Tag;
+
+            //the tag will be used inplace of the text file name
+            var _filepath = $@"_sourceFiles\{ receivedTag }.txt";
+
+            //call the TextHanlder to read the file and output the text
+            TextHanlder(_filepath);
+        }
+        #endregion End of Template Hanlder
+
+        /// <summary>
+        /// Text Hanlder Method
+        /// -------------------
+        /// Reads the content of the text file and adds it to a list
+        /// Loops through the lines and appends it to the Main Text Box with a new line
+        /// </summary>
+
+        #region Text Hanlder
         //this takes the filepath as input pram and outputs the text into the main textbox
+        //_filepath comes from the TemplateHanlder Method
         public void TextHanlder(string _filePath)
         {
             //reads all the lines into a list
-            List<string> content = File.ReadAllLines(_filePath).ToList();
+            List<string> content = new List<string>();
+            try
+            {
+                content = File.ReadAllLines(_filePath).ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("File Not Found");
+            }
             //loops through the list reading each line
 
             foreach (string line in content)
@@ -50,9 +89,22 @@ namespace CCApp
                 mainTxtBox.AppendText("\n");
             }
         }
+        #endregion End of Text Hanlder
 
-        //Top Buttons
-        #region
+        /// <summary>
+        /// Top Menu Buttons
+        /// 
+        /// </summary>
+
+        #region Top Menu Buttons
+
+        //Extensions
+        private void extentionsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //opens the extensions window
+            Extensions extWindow = new Extensions();
+            extWindow.Show();
+        }
 
         //Break Button
         private void breakBtn_Click(object sender, RoutedEventArgs e)
@@ -80,11 +132,9 @@ namespace CCApp
             //This method does 3 things
 
             //Increments the counter
-            #region
-
             numCounter++;
             counter.Content = $"Entries - {numCounter}";
-            #endregion
+
 
             //Outputs text file
             #region
@@ -123,17 +173,16 @@ namespace CCApp
             #endregion
         }
 
-        //Top Menu Extensions Button click event - Implemented
-        private void extentionsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //opens the extensions window
-            Extensions extWindow = new Extensions();
-            extWindow.Show();
-        }
         #endregion
 
-        //This where all the shortcut buttons live - Implemented
-        #region
+        /// <summary>
+        /// Shortcuts Buttons
+        /// -----------------
+        /// These buttons are located at the bottom of the Main Window
+        /// </summary>
+
+
+        #region Shortcut Buttons
 
         //CRM
         private void shortcutsCrmBtn_Click(object sender, RoutedEventArgs e)
@@ -148,7 +197,7 @@ namespace CCApp
             {
                 Process.Start("file://cs007/Operations/Shared%20Pool/CTS%20ANS%20Service/Filex%20-%20Answering%20Service/_Gavin%20Michael/_Knowledge%20Base%20Folder/Agthia%20KB%202.3%20-%20January%202017/index.html");
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 MessageBox.Show("Unable to find the file");
             }
@@ -189,98 +238,38 @@ namespace CCApp
         {
             Process.Start("https://goo.gl/forms/5laEXcIuAUk0IMo72");
         }
-        #endregion
 
-        //Here are the template button click events
-        #region
-
-        //Delivery Issue Btn
-        private void delIssueBtn_Click(object sender, RoutedEventArgs e)
+        //Zeta
+        private void shortcutsZetaBtn_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = @"_sourceFiles\delivery.txt";
-            TextHanlder(filePath);
-        }
-
-        //Change Details Btn
-        private void changeDetailsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\changeDet.txt";
-            TextHanlder(filePath);
-        }
-
-        //Cancellation Btn
-        private void cancellationBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\cancellation.txt";
-            TextHanlder(filePath);
-        }
-
-        //Labelling Btn
-        private void labellingBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\labelling.txt";
-            TextHanlder(filePath);
-        }
-
-        //Dispenser Complaints Btn
-        private void dispComplaintBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\dispcomplaint.txt";
-            TextHanlder(filePath);
-        }
-
-        //Sponsorship Btn
-        private void sponsorshipBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\sponsorship.txt";
-            TextHanlder(filePath);
-        }
-
-        //Export Btn
-        private void exportBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\export.txt";
-            TextHanlder(filePath);
-        }
-
-        //PET Order Btn
-        private void petOrderBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\petOrder.txt";
-            TextHanlder(filePath);
-        }
-
-        //Update JP Btn
-        private void updateJPBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\updateJP.txt";
-            TextHanlder(filePath);
-        }
-
-        //AUH Muni New Customer
-        private void auhMuniBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\AUHMuni.txt";
-            TextHanlder(filePath);
-        }
-
-        //Irtawi Card Complaint
-        private void irtawiComplaintBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\irtawiCardComplaint.txt";
-            TextHanlder(filePath);
-        }
-
-        //SMS Notification Issue
-        private void smsIssueBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = @"_sourceFiles\smsNotificationsIssue.txt";
-            TextHanlder(filePath);
+            try
+            {
+                Process.Start("zeta/zetahrms/ess/login.aspx");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to find URL");
+            }
         }
         #endregion
 
-        //Theme functionality here
+        /// <summary>
+        /// Themes
+        /// ------
+        /// 1. User clicks the button
+        /// 2. Switch statement based on the button return tag
+        /// 3. Case sets the brushes
+        /// 4. Brush definitions are implemented under Theme Definitions Region
+        /// 5. Calls ThemeChanger Method
+        /// 6. ThemeChanger Method sets the Control properties based on the arguments passed in
+        /// </summary>
 
+
+        /// <summary>
+        /// Theme Hanlder
+        /// </summary>
+
+        #region Theme Handler
         private void ThemeHandler(object sender, RoutedEventArgs e)
         {
             //this captures the tag of the button clicked to evaluate later
@@ -366,6 +355,14 @@ namespace CCApp
 
             }
         }
+        #endregion End of Theme Handler
+
+
+        /// <summary>
+        /// Theme Changer
+        /// </summary>
+
+        #region Theme Changer
 
         //this method takes in the colors and changes the control property based on the parameter passed in
         private void ThemeChanger(SolidColorBrush mainColor, SolidColorBrush subColor, SolidColorBrush text, SolidColorBrush border, SolidColorBrush newCallColor, SolidColorBrush white,
@@ -432,6 +429,7 @@ namespace CCApp
                 button.Foreground = text;
             }
         }
+        #endregion End of Theme Changer
     }
 
 }

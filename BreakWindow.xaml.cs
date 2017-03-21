@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace CCApp
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// This window has not been completed
     /// </summary>
     public partial class Window1 : Window
     {
@@ -53,6 +53,7 @@ namespace CCApp
             }
         }
 
+        //Close Button
         private void breakWindowCloseBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
